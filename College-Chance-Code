@@ -1,0 +1,58 @@
+//P1: Declaring all variables, gathering inputs, etc.
+            Console.WriteLine("Enter your expected GPA for all four years of high school: ");
+            Double GPA = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter your total SAT Score: ");
+            int SAT = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the total number of honors classes you took: ");
+            int Honors = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the total number of disciplinary actions you encountered in High School: ");
+            int Disciplinary = Convert.ToInt32(Console.ReadLine());
+            int Score = 500;
+        
+            //Determines how GPA affects score
+            if (GPA > 3.7)
+            {Score += 200;}
+            else
+            { Score += 100; }
+            if (GPA < 2.0)
+            {Score -= 300;}
+
+            //Determines how SAT Score affects score
+            if (SAT > 1500)
+            { Score += 100;}
+            if (SAT > 1200)
+            {Score += 100;}
+            if (SAT < 1000)
+            {Score -= 100;}
+
+            //Determines how honors classes affects score
+            if (Honors < 6)
+            { Score += 0; }
+            else
+            { Score += Honors * 25; }
+
+            //Determines how Disciplinary affects score
+            if (Disciplinary > 5) 
+            {Score = 0;} 
+            else
+            {Score -= (Disciplinary * 50);}
+
+            if (GPA < 0.5)
+            { Score = 0; }
+
+
+            //Displays output and informs the user of their likelihood to get in
+            Console.WriteLine("Your total score is {0}", Score);
+            if (Score > 1000)
+            { Console.WriteLine("You are very likely to get in!"); }
+            else
+            { if (Score >= 500)
+                { Console.WriteLine("You could get in"); };
+              if (Score < 500 )
+                { Console.WriteLine("You will most likely not get in"); };
+            }
+
+            //prevents the program from immediately exiting
+            Console.WriteLine("");
+            Console.WriteLine("Press Enter to Exit");
+            Console.ReadLine();
